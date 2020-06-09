@@ -1,14 +1,36 @@
 window.onload = function () {
-    var info = document.getElementById("info");
-    let clicker = document.getElementById("clicker");
-    let fruits = ["Яблоко", "Апельсин", "Слива"];
-    let i=0;
+    let my_array=[];
 
-    clicker.onclick=function () {
-        info.innerHTML += '<a href="#">'+fruits[i]+'</a><br/>';
-        i++;
-        var text_one = document.getElementById("txt_one");
-        console.log("Input value", text_one.value);
-        //alert("click span");
+    document.getElementById("btnAdd").onclick=addClick;
+    
+    function addClick(e) {
+        let product={
+            image: "",
+            name: "",
+            price: 0
+        };
+        e.preventDefault(); //відмінити стандартну поведінку
+        product.image=document.getElementById("image").value;
+        product.name=document.getElementById("name").value;
+        product.price=document.getElementById("price").value;
+
+        //console.log("object product", product);
+        addProduct(product);
+    }
+
+    function addProduct(product) {
+        let productContent = document.getElementById("productContent");
+        let row = document.createElement('tr');
+        row.innerHTML=`
+                    <td>
+                        <img width="150"
+                            src="${product.image}">
+                    </td>
+                    <td>${product.name}</td>
+                    <td>${product.price} грн.</td>
+        `;
+        productContent.appendChild(row);
+        my_array.push(product);
+        console.log("-------product array-------", my_array);
     }
 }

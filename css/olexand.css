@@ -16,7 +16,9 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center; }
+        justify-content: center;
+        list-style: none;
+        margin: 0; }
         .wrapper-product .col-img .left-panel .one-min > .col-v {
           width: 100px;
           margin: 10px;

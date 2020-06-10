@@ -43,47 +43,36 @@
     </nav>
 
     <div class="container">
+        <div class="row">
+            <button class="btn btn-warning" id="chageImage">Змінити фото</button>
+        </div>
         <div class="row m-3 product">
-            <div class="col-6">
-
+            
+            <div class="col-md-6">
                 <div class="wrapper-product">
                     <div class="col-img">
 
                         <div class="left-panel">
-                            <div class="one-min">
-                                <div class="col-v">
-                                    <a href="#" class="active">
-                                        <img src="https://intertop.ua/load/ZW6423/200x267/MAIN.jpg" alt="фото">
+                            <ul class="one-min" id="images_small">
+                                <li class="col-v">
+                                    <a href="https://intertop.ua/load/BR1651/1600x2133/MAIN.jpg" class="active">
+                                        <img src="https://intertop.ua/load/BR1651/200x267/MAIN.jpg" alt="фото">
                                     </a>
-                                </div>
-                                <div class="col-v">
-                                    <a href="#">
-                                        <img src="https://intertop.ua/load/ZW6423/200x267/2.jpg" alt="фото">
+                                </li>
+                                <li class="col-v">
+                                    <a href="https://intertop.ua/load/BR1651/1600x2133/1.jpg">
+                                        <img src="https://intertop.ua/load/BR1651/200x267/1.jpg" alt="фото">
                                     </a>
-                                </div>
-                                <div class="col-v">
-                                    <a href="#">
-                                        <img src="https://intertop.ua/load/ZW6423/200x267/3.jpg" alt="фото">
-                                    </a>
-                                </div>
-                                <div class="col-v">
-                                    <a href="#">
-                                        <img src="https://intertop.ua/load/ZW6423/200x267/2.jpg" alt="фото">
-                                    </a>
-                                </div>
-                                <div class="col-v">
-                                    <a href="#">
-                                        <img src="https://intertop.ua/load/ZW6423/200x267/3.jpg" alt="фото">
-                                    </a>
-                                </div>
-                            </div>
+                                </li>
+                                
+                            </ul>
                         </div>
 
                         <div class="rignt-panel">
                             <div class="content">
-                                <div class="img-info" >
+                                <div class="img-info">
                                     <span class=info> -30%</span>
-                                    <div id="img-container" style="min-width: 300px">
+                                    <div id="img-container" >
 
                                     </div>
                                     <!--<img src=" https://intertop.ua/load/ZW6423/MAIN.jpg" alt="велике фото">-->
@@ -94,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 description">
+            <div class="col-md-6 description">
 
                 <h1 class="title">
                     Кросівки жіночі ECCO
@@ -141,47 +130,49 @@
 
 
 
-    <div class="container">
-
-        <h1>Товар</h1>
-
-        <button class="btn btn-warning" id="chageImage">Змінити фото</button>
-
-        <div id="img-container" style="width: 400px">
-
-        </div>
-
-
-    </div>
 
 
     <script src="/node_modules/js-image-zoom/js-image-zoom.js"></script>
 
     <script>
-
-
         var options = {
             width: 400,
-            zoomWidth: 500,
-            img: "/images/img_girl.jpg",
-            offset: { vertical: 0, horizontal: 10 }
+            zoomWidth: 400,
+            img: "https://intertop.ua/load/BR1651/1600x2133/MAIN.jpg",
+            offset: { vertical: 0, horizontal: 10 },
+            zoomPosition: "Default"//Default, left, right, top, bottom, original
         };
-
         window.imageZoom =
             new ImageZoom(document.getElementById("img-container"), options);
 
         window.onload = function () {
+            
+            let images_small = document.getElementById("images_small");
+            images_small.querySelectorAll("a")
+                .forEach(function (item) {
+                    item.onclick = function (e) {
+                        e.preventDefault();
+                        options.img = this.href;
+                        window.imageZoom.kill();
+                        window.imageZoom = new ImageZoom(document.getElementById("img-container"), options);
+                        //console.log("a", this);
+                    }
+                    
+                });
+            
+            //for (var i = 0; i < ima; i++) {
+
+            //}
+            
+
             let btnChageImage = document.getElementById("chageImage");
             btnChageImage.onclick = function () {
                 console.log("Hello click btn");
                 options.img = "https://www.primefaces.org/wp-content/uploads/2018/01/primereact-140.jpg";
                 window.imageZoom.kill();
                 window.imageZoom = new ImageZoom(document.getElementById("img-container"), options);
-
             };
         }
-
-
     </script>
 </body>
 </html>

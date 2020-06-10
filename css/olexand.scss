@@ -25,6 +25,8 @@ $green: #00b894;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                list-style: none;
+                margin: 0;
 
                 > .col-v {
                     width: 100px;
@@ -33,6 +35,7 @@ $green: #00b894;
                     line-height: 75px;
                     font-size: 30px;
                     position: relative;
+
 
                     a {
                         margin-left: 15px;

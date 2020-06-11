@@ -11,7 +11,7 @@
     <!--<script src="https://unpkg.com/js-image-zoom@0.4.1/js-image-zoom.js" type="application/javascript"></script>-->
     <!--<link href="css/zoomer.css" rel="stylesheet" />
     <script src="js/zoomer.js"></script>-->
-
+    <script src="js/helpLoader.js"></script>
     <style>
         .js-image-zoom__zoomed-image {
             z-index: 1000;
@@ -19,35 +19,16 @@
     </style>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a href="/" class="navbar-brand">Автошрот</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="/" class="nav-item nav-link active">Головна</a>
-                <a href="zoomer.html" class="nav-item nav-link">Зумер</a>
-                <a href="#" class="nav-item nav-link">Профіль користвача</a>
-                <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
-            </div>
-            <div class="navbar-nav ml-auto">
-                <a href="#" class="nav-item nav-link">Реєстрація</a>
-                <a href="#" class="nav-item nav-link">
-                    <i class="fa fa-sign-in" aria-hidden="true"></i> Вхід
-                </a>
-            </div>
-        </div>
-    </nav>
+    <script>
+        loadHtml("navbar.html");
+    </script>
 
     <div class="container">
         <div class="row">
             <button class="btn btn-warning" id="chageImage">Змінити фото</button>
         </div>
         <div class="row m-3 product">
-            
+
             <div class="col-md-6">
                 <div class="wrapper-product">
                     <div class="col-img">
@@ -64,7 +45,7 @@
                                         <img src="https://intertop.ua/load/BR1651/200x267/1.jpg" alt="фото">
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </div>
 
@@ -72,7 +53,7 @@
                             <div class="content">
                                 <div class="img-info">
                                     <span class=info> -30%</span>
-                                    <div id="img-container" >
+                                    <div id="img-container" style="width:300px">
 
                                     </div>
                                     <!--<img src=" https://intertop.ua/load/ZW6423/MAIN.jpg" alt="велике фото">-->
@@ -136,7 +117,7 @@
 
     <script>
         var options = {
-            width: 400,
+            width: 300,
             zoomWidth: 400,
             img: "https://intertop.ua/load/BR1651/1600x2133/MAIN.jpg",
             offset: { vertical: 0, horizontal: 10 },
@@ -146,7 +127,7 @@
             new ImageZoom(document.getElementById("img-container"), options);
 
         window.onload = function () {
-            
+
             let images_small = document.getElementById("images_small");
             images_small.querySelectorAll("a")
                 .forEach(function (item) {
@@ -157,13 +138,13 @@
                         window.imageZoom = new ImageZoom(document.getElementById("img-container"), options);
                         //console.log("a", this);
                     }
-                    
+
                 });
-            
+
             //for (var i = 0; i < ima; i++) {
 
             //}
-            
+
 
             let btnChageImage = document.getElementById("chageImage");
             btnChageImage.onclick = function () {

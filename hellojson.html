@@ -24,13 +24,28 @@
         <div id="content">
 
         </div>
+        <br />
         <div class="row">
             <div col="12">
                 <a href="#" class="btn btn-success" id="getParts">
                     Отримати список запчастин
                 </a>
 
-                <div id="content-parts" >
+                <div id="content-parts">
+
+                </div>
+            </div>
+
+        </div>
+
+        <br />
+        <div class="row">
+            <div col="12">
+                <a href="#" class="btn btn-success" id="getParts">
+                    Перебрати елементи
+                </a>
+
+                <div id="foreach-content">
 
                 </div>
             </div>
@@ -84,8 +99,6 @@
                 }
             }
         });
-        
-
     </script>
 
     <script>
@@ -113,6 +126,32 @@
         });
     </script>
 
+    <script>
+        window.addEventListener("load", function () {
+            //console.log("Foreach");
+            let mas = [23, 45, 21, 34];
+            console.log("----Foreach лямда----");
+            mas.forEach(item => {
+                console.log("mas: ", item);
+            });
+
+            console.log("----Foreach function----");
+            mas.forEach(function(item) {
+                console.log("mas: ", item);
+            }); 
+
+            let contenForeach = document.getElementById("foreach-content");
+
+            let result = mas.map(function (item) {
+                return `<li>${item}</li>`;
+                //console.log("mas: ", item);
+            });
+
+            console.log("map", result);
+            contenForeach.innerHTML = result;
+
+        });
+    </script>
 </body>
 
 </html>

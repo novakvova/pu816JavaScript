@@ -4,7 +4,7 @@
   "libraries": [
     {
       "library": "jquery@3.5.1",
-      "destination": "js/jquery/",
+      "destination": "lib/jquery/",
       "files": [
         "jquery.min.js"
       ]

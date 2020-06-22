@@ -83,7 +83,8 @@
             }
 
             function testAjaxPromis() {
-                let url = "parts1.json";
+                //let url = "parts1.json";
+                let url = "http://localhost:59389/api/users/search";
                 var promGetUsers = new Promise(function (resolve, reject) {
                     var xhr = new XMLHttpRequest();
                     xhr.open('GET', url, false);

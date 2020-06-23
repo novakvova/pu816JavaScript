@@ -70,6 +70,14 @@
       "files": [
         "dist/popper.min.js"
       ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "axios@0.19.2",
+      "destination": "lib/axios/",
+      "files": [
+        "dist/axios.min.js"
+      ]
     }
   ]
 }

@@ -78,6 +78,11 @@
       "files": [
         "dist/axios.min.js"
       ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "leaflet@1.6.0",
+      "destination": "lib/leaflet/"
     }
   ]
 }
